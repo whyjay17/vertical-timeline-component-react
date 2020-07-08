@@ -32,7 +32,7 @@ const ContentBody = (props) => {
 		color: ${textColor};
 		font-weight: bold;
 		margin-bottom: 10px;
-		font-size: 18px;
+		font-size: 1em;
 		margin-top: 0;
 		text-align: left;
 	`;
@@ -58,4 +58,3 @@ ContentBody.defaultProps = {
 };
 
 export default ContentBody;
-	
