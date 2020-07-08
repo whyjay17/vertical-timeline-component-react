@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const TimelineComponent = styled.div`
-	padding: 10px 20px 20px;
+	padding: 10px 20px 20px 0px;
 	width: 100%;
 `;
 
