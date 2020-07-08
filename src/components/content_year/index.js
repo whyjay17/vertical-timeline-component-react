@@ -52,22 +52,38 @@ const handleTransformMonth = (month, type) => {
 	return mapMonth[index];
 };
 
-const handleGetDate = (month, type, day, year) => {
+const handleGetDate = (month, type, day, year, useYear) => {
 	const newMonth = handleTransformMonth(month, type);
-
-	if (day !== '' && month !== '') {
-		if (type === 'text') {
-			return `${newMonth} ${day}, ${year}`;
+	
+	if (!useYear) {
+		if (day !== '' && month !== '') {
+			if (type === 'text') {
+				return `${newMonth} ${day}`;
+			}
+			return `${newMonth}-${day}`;
 		}
-		return `${newMonth}-${day}-${year}`;
-	}
-	if (month !== '') {
-		if (type === 'text') {
-			return `${newMonth}, ${year}`;
+		if (month !== '') {
+			if (type === 'text') {
+				return `${newMonth}`;
+			}
+			return `${newMonth}`;
 		}
-		return `${newMonth}-${year}`;
+		return '';
+	} else {
+		if (day !== '' && month !== '') {
+			if (type === 'text') {
+				return `${newMonth} ${day}, ${year}`;
+			}
+			return `${newMonth}-${day}-${year}`;
+		}
+		if (month !== '') {
+			if (type === 'text') {
+				return `${newMonth}, ${year}`;
+			}
+			return `${newMonth}-${year}`;
+		}
+		return year;
 	}
-	return year;
 };
 
 const handlePrintDate = (mounth, day, year, monthType, current) => {
@@ -108,6 +124,7 @@ ContentYear.defaultProps = {
 	monthType: 'number',
 	startDay: '',
 	currentYear: false,
+	useYear: true,
 };
 
 ContentYear.propTypes = {
@@ -117,6 +134,7 @@ ContentYear.propTypes = {
 	startYear: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 		.isRequired,
 	currentYear: PropTypes.bool,
+	useYear: PropTypes.bool,
 };
 
 export default ContentYear;

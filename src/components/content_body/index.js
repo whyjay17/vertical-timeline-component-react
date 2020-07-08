@@ -58,3 +58,4 @@ ContentBody.defaultProps = {
 };
 
 export default ContentBody;
+	
